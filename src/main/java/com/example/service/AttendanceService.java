@@ -53,7 +53,6 @@ public class AttendanceService {
 	}
 
 	public List<Attendance> getAttendancesByUsername(String username) {
-		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 }
