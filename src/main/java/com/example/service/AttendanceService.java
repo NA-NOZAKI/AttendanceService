@@ -53,4 +53,9 @@ public class AttendanceService {
 			// handle the case where attendance is not found
 		}
 	}
+
+	public List<Attendance> getAttendancesByUsername(String username) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
 }
