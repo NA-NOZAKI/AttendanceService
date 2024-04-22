@@ -26,10 +26,7 @@ public class AttendanceCon {
 	@Autowired
 	private AttendanceService attendanceService;
 
-	/**
-	 * 勤怠情報を取得するエンドポイント
-	 * ユーザータイプが "master" の場合はすべての勤怠情報を取得し、それ以外の場合はログインしているユーザーの勤怠情報のみを取得する
-	 */
+	// ユーザータイプが "master" の場合はすべての勤怠情報を取得し、それ以外の場合はログインしているユーザーの勤怠情報のみを取得する
 	@GetMapping("/attendanceis")
 	public ResponseEntity<List<Attendance>> getAllAttendances() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -44,27 +41,21 @@ public class AttendanceCon {
 		return new ResponseEntity<>(attendances, HttpStatus.OK);
 	}
 
-	/**
-	 * 指定されたIDの勤怠情報を取得するエンドポイント
-	 */
+	// 指定されたIDの勤怠情報を取得する
 	@GetMapping("/attendance/{id}")
 	public ResponseEntity<Attendance> getAttendanceById(@PathVariable("id") Long id) {
 		Attendance attendance = attendanceService.getAttendanceById(id);
 		return new ResponseEntity<>(attendance, HttpStatus.OK);
 	}
 
-	/**
-	 * 新しい勤怠情報を作成するエンドポイント
-	 */
+	// 新しい勤怠情報を作成する
 	@PostMapping("/attendance")
 	public ResponseEntity<Attendance> createAttendance(@RequestBody Attendance attendance) {
 		Attendance createdAttendance = attendanceService.createAttendance(attendance);
 		return new ResponseEntity<>(createdAttendance, HttpStatus.CREATED);
 	}
 
-	/**
-	 * 指定されたIDの勤怠情報を更新するエンドポイント
-	 */
+	// 指定されたIDの勤怠情報を更新する
 	@PutMapping("/{id}")
 	public ResponseEntity<Attendance> updateAttendance(@PathVariable("id") Long id,
 			@RequestBody Attendance attendanceDetails) {
@@ -72,9 +63,7 @@ public class AttendanceCon {
 		return new ResponseEntity<>(updatedAttendance, HttpStatus.OK);
 	}
 
-	/**
-	 * 指定されたIDの勤怠情報を削除するエンドポイント
-	 */
+	// 指定されたIDの勤怠情報を削除する
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteAttendance(@PathVariable("id") Long id) {
 		attendanceService.deleteAttendance(id);

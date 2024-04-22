@@ -22,31 +22,31 @@ public class UserCon {
     @Autowired
     private UserService userService;
 
-    // 全てのユーザーを取得するエンドポイント
+    // 全てのユーザーを取得する
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    // 指定されたIDのユーザーを取得するエンドポイント
+    // 指定されたIDのユーザーを取得する
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
-    // 新しいユーザーを作成するエンドポイント
+    // 新しいユーザーを作成する
     @PostMapping("/users")
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    // 指定されたIDのユーザーを更新するエンドポイント
+    // 指定されたIDのユーザーを更新する
     @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    // 指定されたIDのユーザーを削除するエンドポイント
+    // 指定されたIDのユーザーを削除する
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
