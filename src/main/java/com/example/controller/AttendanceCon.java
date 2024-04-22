@@ -20,7 +20,7 @@ import com.example.model.Attendance;
 import com.example.service.AttendanceService;
 
 @RestController
-@RequestMapping("/Attendance")
+@RequestMapping("/attendance")
 public class AttendanceCon {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class AttendanceCon {
 	 * 勤怠情報を取得するエンドポイント
 	 * ユーザータイプが "master" の場合はすべての勤怠情報を取得し、それ以外の場合はログインしているユーザーの勤怠情報のみを取得する
 	 */
-	@GetMapping("/")
+	@GetMapping("/attendanceis")
 	public ResponseEntity<List<Attendance>> getAllAttendances() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String userType = authentication.getAuthorities().iterator().next().getAuthority();
@@ -47,7 +47,7 @@ public class AttendanceCon {
 	/**
 	 * 指定されたIDの勤怠情報を取得するエンドポイント
 	 */
-	@GetMapping("/{id}")
+	@GetMapping("/attendance/{id}")
 	public ResponseEntity<Attendance> getAttendanceById(@PathVariable("id") Long id) {
 		Attendance attendance = attendanceService.getAttendanceById(id);
 		return new ResponseEntity<>(attendance, HttpStatus.OK);
@@ -56,7 +56,7 @@ public class AttendanceCon {
 	/**
 	 * 新しい勤怠情報を作成するエンドポイント
 	 */
-	@PostMapping("/")
+	@PostMapping("/attendance")
 	public ResponseEntity<Attendance> createAttendance(@RequestBody Attendance attendance) {
 		Attendance createdAttendance = attendanceService.createAttendance(attendance);
 		return new ResponseEntity<>(createdAttendance, HttpStatus.CREATED);
