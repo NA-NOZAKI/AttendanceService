@@ -15,19 +15,23 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	// 全てのユーザー情報を取得する
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
+	// 指定されたIDのユーザー情報を取得する
 	public User getUserById(Long id) {
 		Optional<User> optionalUser = userRepository.findById(id);
 		return optionalUser.orElse(null);
 	}
 
+	// 新しいユーザーを作成する
 	public User createUser(User user) {
 		return userRepository.save(user);
 	}
 
+	// 指定されたIDのユーザー情報を更新する
 	public User updateUser(Long id, User userDetails) {
 		User user = userRepository.findById(id)
 				.orElse(null);
@@ -42,13 +46,14 @@ public class UserService {
 		}
 	}
 
+	// 指定されたIDのユーザー情報を削除する
 	public void deleteUser(Long id) {
 		User user = userRepository.findById(id)
 				.orElse(null);
 		if (user != null) {
 			userRepository.delete(user);
 		} else {
-
+			// ユーザーが見つからない場合の処理
 		}
 	}
 }
