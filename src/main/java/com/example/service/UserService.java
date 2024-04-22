@@ -32,17 +32,13 @@ public class UserService {
 		User user = userRepository.findById(id)
 				.orElse(null);
 		if (user != null) {
-			// Update the user details
-			// user.setUsername(userDetails.getUsername());
-			// user.setEmail(userDetails.getEmail());
-			// user.setEmploymentType(userDetails.getEmploymentType());
-			// user.setDepartment(userDetails.getDepartment());
-			// user.setPosition(userDetails.getPosition());
-			// user.setUserType(userDetails.getUserType());
-			// 他のフィールド...
+			 user.setUsername(userDetails.getUsername());
+			 user.setPassword(userDetails.getPassword());
+			 user.setDepartment(userDetails.getDepartment());
+			 user.setUserType(userDetails.getUserType());
 			return userRepository.save(user);
 		} else {
-			return null; // or throw an exception
+			return null; 
 		}
 	}
 
@@ -52,7 +48,7 @@ public class UserService {
 		if (user != null) {
 			userRepository.delete(user);
 		} else {
-			// handle the case where user is not found
+			
 		}
 	}
 }

@@ -32,15 +32,13 @@ public class AttendanceService {
 		Attendance attendance = attendanceRepository.findById(id)
 				.orElse(null);
 		if (attendance != null) {
-			// Update the attendance details
-			// attendance.setDate(attendanceDetails.getDate());
-			// attendance.setStartTime(attendanceDetails.getStartTime());
-			// attendance.setEndTime(attendanceDetails.getEndTime());
-			// attendance.setBreakTime(attendanceDetails.getBreakTime());
-			// 他のフィールド...
+			 attendance.setDate(attendanceDetails.getDate());
+			 attendance.setStartTime(attendanceDetails.getStartTime());
+			 attendance.setEndTime(attendanceDetails.getEndTime());
+			 attendance.setBreakTime(attendanceDetails.getBreakTime());
 			return attendanceRepository.save(attendance);
 		} else {
-			return null; // or throw an exception
+			return null; 
 		}
 	}
 
@@ -50,7 +48,7 @@ public class AttendanceService {
 		if (attendance != null) {
 			attendanceRepository.delete(attendance);
 		} else {
-			// handle the case where attendance is not found
+
 		}
 	}
 
