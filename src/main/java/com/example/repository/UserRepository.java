@@ -9,10 +9,10 @@ import com.example.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	// 特定の部署に所属するユーザーを取得するメソッド
+	// 特定の部署に所属するユーザーを取得する
 	List<User> findByDepartment(String department);
 
-	// 特定のユーザータイプのユーザーを取得するメソッド
+	// 特定のユーザータイプのユーザーを取得する
 	List<User> findByUserType(String userType);
 
 }

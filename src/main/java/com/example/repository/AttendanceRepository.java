@@ -11,15 +11,15 @@ import com.example.model.Attendance;
 
 @Repository
 public interface AttendanceRepository extends JpaRepository<Attendance, Long> {
-	// 特定のユーザーの勤怠履歴を取得するメソッド
+	// 特定のユーザーの勤怠履歴を取得する
 	List<Attendance> findByUserId(Long userId);
 
-	// 特定の日付範囲内の勤怠履歴を取得するメソッド
+	// 特定の日付範囲内の勤怠履歴を取得する
 	List<Attendance> findByDateBetween(LocalDate startDate, LocalDate endDate);
 
-	// 特定のユーザーの特定の日付範囲内の勤怠履歴を取得するメソッド
+	// 特定のユーザーの特定の日付範囲内の勤怠履歴を取得する
 	List<Attendance> findByUserIdAndDateBetween(Long userId, LocalDate startDate, LocalDate endDate);
 
-	// 特定のユーザーの特定の日付の勤怠情報を取得するメソッド
+	// 特定のユーザーの特定の日付の勤怠情報を取得する
 	Optional<Attendance> findByUserIdAndDate(Long userId, LocalDate date);
 }
