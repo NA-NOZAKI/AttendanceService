@@ -19,31 +19,36 @@ import com.example.service.UserService;
 @RequestMapping("/user")
 public class UserCon {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping("/users")
-	public List<User> getAllUsers() {
-		return userService.getAllUsers();
-	}
+    // 全てのユーザーを取得するエンドポイント
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
 
-	@GetMapping("/users/{id}")
-	public User getUserById(@PathVariable Long id) {
-		return userService.getUserById(id);
-	}
+    // 指定されたIDのユーザーを取得するエンドポイント
+    @GetMapping("/users/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
 
-	@PostMapping("/users")
-	public User createUser(@RequestBody User user) {
-		return userService.createUser(user);
-	}
+    // 新しいユーザーを作成するエンドポイント
+    @PostMapping("/users")
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
 
-	@PutMapping("/users/{id}")
-	public User updateUser(@PathVariable Long id, @RequestBody User user) {
-		return userService.updateUser(id, user);
-	}
+    // 指定されたIDのユーザーを更新するエンドポイント
+    @PutMapping("/users/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
+    }
 
-	@DeleteMapping("/users/{id}")
-	public void deleteUser(@PathVariable Long id) {
-		userService.deleteUser(id);
-	}
+    // 指定されたIDのユーザーを削除するエンドポイント
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
 }
