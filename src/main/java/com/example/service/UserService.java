@@ -32,13 +32,13 @@ public class UserService {
 		User user = userRepository.findById(id)
 				.orElse(null);
 		if (user != null) {
-			 user.setUsername(userDetails.getUsername());
-			 user.setPassword(userDetails.getPassword());
-			 user.setDepartment(userDetails.getDepartment());
-			 user.setUserType(userDetails.getUserType());
+			user.setUsername(userDetails.getUsername());
+			user.setPassword(userDetails.getPassword());
+			user.setDepartment(userDetails.getDepartment());
+			user.setUserType(userDetails.getUserType());
 			return userRepository.save(user);
 		} else {
-			return null; 
+			return null;
 		}
 	}
 
@@ -48,7 +48,7 @@ public class UserService {
 		if (user != null) {
 			userRepository.delete(user);
 		} else {
-			
+
 		}
 	}
 }

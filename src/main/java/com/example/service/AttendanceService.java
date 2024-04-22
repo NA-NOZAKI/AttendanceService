@@ -32,13 +32,13 @@ public class AttendanceService {
 		Attendance attendance = attendanceRepository.findById(id)
 				.orElse(null);
 		if (attendance != null) {
-			 attendance.setDate(attendanceDetails.getDate());
-			 attendance.setStartTime(attendanceDetails.getStartTime());
-			 attendance.setEndTime(attendanceDetails.getEndTime());
-			 attendance.setBreakTime(attendanceDetails.getBreakTime());
+			attendance.setDate(attendanceDetails.getDate());
+			attendance.setStartTime(attendanceDetails.getStartTime());
+			attendance.setEndTime(attendanceDetails.getEndTime());
+			attendance.setBreakTime(attendanceDetails.getBreakTime());
 			return attendanceRepository.save(attendance);
 		} else {
-			return null; 
+			return null;
 		}
 	}
 
