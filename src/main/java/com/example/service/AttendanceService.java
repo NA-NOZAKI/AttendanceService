@@ -15,23 +15,23 @@ public class AttendanceService {
 	@Autowired
 	private AttendanceRepository attendanceRepository;
 
-	// 全ての勤怠情報を取得するメソッド
+	// 全ての勤怠情報を取得する
 	public List<Attendance> getAllAttendances() {
 		return attendanceRepository.findAll();
 	}
 
-	// 指定されたIDの勤怠情報を取得するメソッド
+	// 指定されたIDの勤怠情報を取得する
 	public Attendance getAttendanceById(Long id) {
 		Optional<Attendance> optionalAttendance = attendanceRepository.findById(id);
 		return optionalAttendance.orElse(null);
 	}
 
-	// 新しい勤怠情報を作成するメソッド
+	// 新しい勤怠情報を作成する
 	public Attendance createAttendance(Attendance attendance) {
 		return attendanceRepository.save(attendance);
 	}
 
-	// 指定されたIDの勤怠情報を更新するメソッド
+	// 指定されたIDの勤怠情報を更新する
 	public Attendance updateAttendance(Long id, Attendance attendanceDetails) {
 		Attendance attendance = attendanceRepository.findById(id)
 				.orElse(null);
@@ -46,7 +46,7 @@ public class AttendanceService {
 		}
 	}
 
-	// 指定されたIDの勤怠情報を削除するメソッド
+	// 指定されたIDの勤怠情報を削除する
 	public void deleteAttendance(Long id) {
 		Attendance attendance = attendanceRepository.findById(id)
 				.orElse(null);
@@ -57,7 +57,7 @@ public class AttendanceService {
 		}
 	}
 
-	// 特定のユーザーの勤怠情報を取得するメソッド
+	// 特定のユーザーの勤怠情報を取得する
 	public List<Attendance> getAttendancesByUsername(String username) {
 		return null;
 	}
