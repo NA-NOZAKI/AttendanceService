@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +22,8 @@ public class AttendanceService {
 	}
 
 	// 指定されたIDの勤怠情報を取得する
-	public Attendance getAttendanceById(Long id) {
-		Optional<Attendance> optionalAttendance = attendanceRepository.findById(id);
+	public Attendance getAttendanceById(Long userId) {
+		Optional<Attendance> optionalAttendance = attendanceRepository.findById(userId);
 		return optionalAttendance.orElse(null);
 	}
 
@@ -59,6 +60,26 @@ public class AttendanceService {
 
 	// 特定のユーザーの勤怠情報を取得する
 	public List<Attendance> getAttendancesByUsername(String username) {
-		return null;
+	    // ユーザー名を使用して勤怠情報を取得するロジックを実装
+	    return attendanceRepository.findByUserName(username);
 	}
+
+	// 特定の日付範囲内の勤怠情報を取得する
+	public List<Attendance> getAttendancesByDateRange(LocalDate startDate, LocalDate endDate) {
+	    // 日付範囲を使用して勤怠情報を取得するロジックを実装
+	    return attendanceRepository.findByDateBetween(startDate, endDate);
+	}
+
+	// 特定のユーザーの特定の日付範囲内の勤怠情報を取得する
+	public List<Attendance> getAttendancesByUsernameAndDateRange(Long userId, LocalDate startDate, LocalDate endDate) {
+	    // ユーザー名と日付範囲を使用して勤怠情報を取得するロジックを実装
+	    return attendanceRepository.findByUserIdAndDateBetween(userId, startDate, endDate);
+	}
+
+	// 特定のユーザーの特定の日付の勤怠情報を取得する
+	public Optional<Attendance> getAttendanceByUsernameAndDate(Long Id, LocalDate date) {
+	    // ユーザー名と日付を使用して勤怠情報を取得するロジックを実装
+	    return attendanceRepository.findByUserIdAndDate(Id, date);
+	}
+
 }

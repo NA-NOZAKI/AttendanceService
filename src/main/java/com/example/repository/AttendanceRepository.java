@@ -22,4 +22,6 @@ public interface AttendanceRepository extends JpaRepository<Attendance, Long> {
 
 	// 特定のユーザーの特定の日付の勤怠情報を取得する
 	Optional<Attendance> findByUserIdAndDate(Long userId, LocalDate date);
+
+	List<Attendance> findByUserName(String username);
 }
