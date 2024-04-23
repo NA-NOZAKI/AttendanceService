@@ -20,8 +20,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.xerial:sqlite-jdbc:3.34.0'
+    implementation 'org.xerial:sqlite-jdbc:3.43.2.0'
+    implementation 'org.hibernate:hibernate-core:6.4.4.Final'
     implementation 'org.springframework.security:spring-security-core:6.2.3'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    
 }
 
 tasks.named('test') {
