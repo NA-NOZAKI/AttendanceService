@@ -23,7 +23,8 @@ public class Attendance {
 	private LocalTime endTime;
 	private int breakTime;
 	private String note;
-
+	
+	
 	public Long getId() {
 		return id;
 	}
