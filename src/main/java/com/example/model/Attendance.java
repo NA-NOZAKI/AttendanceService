@@ -24,7 +24,6 @@ public class Attendance {
 	private int breakTime;
 	private String note;
 	
-	
 	public Long getId() {
 		return id;
 	}
